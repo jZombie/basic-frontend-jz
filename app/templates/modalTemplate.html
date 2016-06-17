@@ -1,0 +1,128 @@
+<div class="section" ng-controller="RegisterCtrl">
+  <div class="container container-wizzard-custom" ng-show="steps.first">
+    <form role="form">
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-lg-9 col-md-9 col-sm-9">
+            <label>Nombre empresa (razón social):</label>
+            <br>
+            <input type="text" class="form-control input-sm" ng-model="register.company">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-3">
+            <label>Nombre: </label>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <input type="text" class="form-control input-sm" ng-model="register.name">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-3">
+            <label>Email: </label>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <input type="text" class="form-control input-sm" ng-model="register.email">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-3">
+            <label>Celular: </label>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <input type="text" class="form-control input-sm" ng-model="register.phone">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-3">
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <button class="btn btn-lg btn-primary  pull-right" ng-click="nextStep('first', 'second')">Siguiente</button>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+  <div class="container container-wizzard-custom" ng-show="steps.second">
+    <form role="form">
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-3">
+            <label>Razón social: </label>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <h3>{{register.company}}</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-3">
+            <label>Gasto trasnporte mes: </label>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <select ng-init="register.costs = costs_list[0]" ng-options="item for item in costs_list track by item"  ng-model="register.costs"></select>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-3">
+            <label>Número empleado: </label>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <select ng-init="register.employee = employee_number[0]" ng-options="item as item.name for item in employee_number track by item.id"  ng-model="register.employee"></select>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-3">
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <button class="btn btn-lg btn-primary pull-right" ng-click="nextStep('second', 'third')">Siguiente</button>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+  <div class="container container-wizzard-custom" ng-show="steps.third">
+    
+    <div class="row">
+      <div class="col-lg-9 col-md-9 col-sm-9">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus fermentum vel ligula iaculis interdum. Duis sem nisl, cursus bibendum eros id, condimentum malesuada felis. Fusce efficitur efficitur erat</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-3">
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6">
+        <button class="btn btn-lg btn-primary pull-center" ng-click="closeRegister()">Finalizar</button>
+      </div>
+    </div>
+
+  </div>
+
+</div>
